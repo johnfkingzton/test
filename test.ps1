@@ -167,9 +167,7 @@ UI isn't changed.
 }
 #>
 
-$ch = Read-Host -Prompt "Optional - Remove ad placeholder and upgrade button. (Experimental) (Y/N) "
-$ch = 'y'
-if ($ch -eq 'y') {
+
     Add-Type -Assembly 'System.IO.Compression.FileSystem'
 
     Copy-Item -Path "$SpotifyApps\xpui.spa" -Destination "$SpotifyApps\xpui.spa.bak"
@@ -196,11 +194,6 @@ if ($ch -eq 'y') {
     $writer.Close()
 
     $zip.Dispose()
-} else {
-     Write-Host @'
-Won't remove ad placeholder and upgrade button.
-'@`n
-}
 
 $tempDirectory = $PWD
 Pop-Location
